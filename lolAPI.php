@@ -25,7 +25,7 @@
 		}
 		
 		/*	Constants	*/
-		const BASE_URL = 'https://prod.api.pvp.net';
+		const BASE_URL = 'https://euw.api.pvp.net';
 		const FAIL = 'FAIL';
 		const SUCCESS = 'SUCCESS';
 		
