@@ -32,35 +32,50 @@
 		/*	Properties:Private	*/
 		private $apiUrls = array(
 			'champion' => array(
-				'url' => '/api/lol/{region}/{version}/champion',
-				'ver' => '1.1'
+				'url' => array(
+					'all' => '/api/lol/{region}/{version}/champion',
+					'by-id' => '/api/lol/{region}/{version}/champion/{championId}'
+					),
+				'ver' => '1.2'
 			),
 			'game' => array(
 				'url' => '/api/lol/{region}/{version}/game/by-summoner/{summonerID}/recent',
 				'ver' => '1.3'
 			),
 			'league' => array(
-				'url' => '/api/lol/{region}/{version}/league/by-summoner/{summonerID}',
-				'ver' => '2.3'
+				'url' => array(
+					'summary' => '/api/lol/{region}/{version}/league/by-summoner/{summonerID}',
+					'entry ' => '/api/lol/{region}/{version}/league/by-summoner/{summonerID}/entry',
+					'by-team' => '/api/lol/{region}/{version}/league/by-team/{teamIds}',
+					'by-team-entry' => '/api/lol/{region}/{version}/league/by-team/{teamIds}/entry',
+					'challenger' => '/api/lol/{region}/{v2.4}version}/league/challenger'
+					),
+				'ver' => '2.4'
 			),
 			'static-data' => array(
 				'url' => array (
+					'champions' => '/api/lol/static-data/{region}/{version}/champion',
 					'champion' => '/api/lol/static-data/{region}/{version}/champion/{id}',
+					'items' => '/api/lol/static-data/{region}/{version}/item',
 					'item' => '/api/lol/static-data/{region}/{version}/item/{id}',
+					'masteries' => '/api/lol/static-data/{region}/{version}/mastery',
 					'mastery' => '/api/lol/static-data/{region}/{version}/mastery/{id}',
 					'realm' => '/api/lol/static-data/{region}/{version}/realm',
+					'runes' => '/api/lol/static-data/{region}/{version}/rune/{id}',
 					'rune' => '/api/lol/static-data/{region}/{version}/rune/{id}',
+					'spells' => '/api/lol/static-data/{region}/{version}/summoner-spell',
 					'spell' => '/api/lol/static-data/{region}/{version}/summoner-spell/{id}',
-					'summoner-spell' => '/api/lol/static-data/{region}/{version}/summoner-spell/{id}'
+					'summoner-spell' => '/api/lol/static-data/{region}/{version}/summoner-spell/{id}',
+					'versions' => 'api/lol/static-data/{region}/{version}/versions'
 				),
-				'ver' => '1'
+				'ver' => '1.2'
 			),
 			'stats' => array(
 				'url' => array (
 					'summary' => '/api/lol/{region}/{version}/stats/by-summoner/{summonerID}/summary',
 					'ranked' => '/api/lol/{region}/{version}/stats/by-summoner/{summonerID}/ranked'
 				),
-				'ver' => '1.2'
+				'ver' => '1.3'
 			),
 			'summoner' => array(
 				'url' => array (
@@ -70,11 +85,14 @@
 					'masteries' => '/api/lol/{region}/{version}/summoner/{summonerID}/masteries',
 					'runes' => '/api/lol/{region}/{version}/summoner/{summonerID}/runes',
 				),
-				'ver' => '1.3'
+				'ver' => '1.4'
 			),
 			'team' => array(
-				'url' => '/api/lol/{region}/{version}/team/by-summoner/{summonerID}',
-				'ver' => '2.2'
+				'url' => array(
+					'by-summoner' => '/api/lol/{region}/{version}/team/by-summoner/{summonerID}',
+					'by-id' => '/api/lol/{region}/{version}/team/{teamIds}'
+					),
+				'ver' => '2.3'
 			)
 		);
 		
@@ -83,7 +101,7 @@
 			400 => 'Bad request',
 			//401 => 'Missing api key',
 			401 => 'Unauthorized',
-			404 => 'Summoner not found',
+			404 => 'Data not found',
 			500 => 'Internal server error',
 			503 => 'Internal server error'
 		);
